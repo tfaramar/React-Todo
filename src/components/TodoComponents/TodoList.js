@@ -1,6 +1,5 @@
 import React from 'react';
 import Todo from './Todo.js';
-import { isTemplateElement } from '@babel/types';
 
 const TodoList = props => {
     return (

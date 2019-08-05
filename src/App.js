@@ -1,5 +1,7 @@
 import React from 'react';
+
 import TodoList from './components/TodoComponents/TodoList.js';
+import TodoForm from './components/TodoComponents/TodoForm.js';
 
 
 const todoData = [
@@ -88,8 +90,8 @@ class App extends React.Component {
       <div className="app-container">
         <div className="header">
           <h1>Today's To-dos</h1>
+          <TodoForm addTodo={this.addTodo} />
         </div>
-        
         <TodoList
           todos={this.state.todos}
           toggleTodo={this.toggleTodo}
