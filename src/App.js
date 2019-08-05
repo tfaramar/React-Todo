@@ -3,6 +3,8 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
+import './styles.css';
+
 
 const todoData = [
   {
@@ -78,8 +80,12 @@ class App extends React.Component {
 
   clearCompleted = () => {
     this.setState({
-      todos: this.state.todos.filter
-      (item => !item.completed)
+      todos: this.state.todos.filter(todo => 
+        {
+          if (todo.completed === false){
+            return todo;
+          }
+        })
     });
   }
 
