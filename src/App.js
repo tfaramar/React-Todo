@@ -3,7 +3,7 @@ import React from 'react';
 import TodoList from './components/TodoComponents/TodoList.js';
 import TodoForm from './components/TodoComponents/TodoForm.js';
 
-import './styles.css';
+import './components/TodoComponents/Todo.css';
 
 
 const todoData = [
@@ -79,6 +79,7 @@ class App extends React.Component {
   };
 
   clearCompleted = () => {
+    console.log('BLABLAHBLAHABB')
     this.setState({
       todos: this.state.todos.filter(todo => 
         {
@@ -89,14 +90,24 @@ class App extends React.Component {
     });
   }
 
+  handleChange = event => {
+    this.setState({
+        [event.target.name]: event.target.value
+    });
+  };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    this.addTodo(this.state.todo);
+    
+  };
 
   render() {
     return (
       <div className="app-container">
         <div className="header">
           <h1>Today's To-dos</h1>
-          <TodoForm addTodo={this.addTodo} />
+          <TodoForm addTodo={this.addTodo} clearCompleted={this.clearCompleted} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
         </div>
         <TodoList
           todos={this.state.todos}

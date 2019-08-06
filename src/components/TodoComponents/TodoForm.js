@@ -8,28 +8,17 @@ class TodoForm extends React.Component {
         };
     };
 
-    handleChange = event => {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-    };
-
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.addTodo(this.state.todo);
-        
-    };
-
     render() {
+        //console.log(this.props)
         return (
             <div className="form-and-btns">
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.handleSubmit}>
                     <input
                         type="text"
                         value={this.todo}
                         name="todo"
                         placeholder="what's the task?"
-                        onChange={this.handleChange}
+                        onChange={this.props.handleChange}
                     />
                     <button>Add Task</button>
                 </form>
