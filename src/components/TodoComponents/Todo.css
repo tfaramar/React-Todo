@@ -6,3 +6,6 @@
     margin: 0 auto; 
 }
 
+.completed {
+    text-decoration: line-through;
+}
